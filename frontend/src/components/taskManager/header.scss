@@ -1,4 +1,27 @@
-header{
+.header{
     width: 100%;
+    max-width: 1400px;
+    height: 10%;
     display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    &__logo{
+        display: flex;
+        align-items: center;
+        width: 5em;
+        height: 100%;
+    }
+    &__title{
+        color: 092C4C;
+    }
+    &__addTaskBtn{
+        color: royalblue;
+        border-radius: 100%;
+        width:5em;
+        height: 3em;
+    }
+    &__user{
+        height: 1em;
+        width: 1em;
+    }
 }
