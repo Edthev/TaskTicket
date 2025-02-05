@@ -1,3 +1,4 @@
+import "./header.scss"
 const taskManagerPageHeader = () =>{
     /*
     header
@@ -8,10 +9,10 @@ const taskManagerPageHeader = () =>{
     return(
         <div className="header">
             <div className="header__logo">LOGO</div>
-            <div className="header__tabs">
-            </div>
-            <div className="header__search"></div>
+            <h1 className="header__title">Dashboard</h1>
             <div className="header__addTaskBtn"></div>
+            <button className="header__search">+ add new</button>
+            <div className="header__user"></div>
         </div>
     )
 }
