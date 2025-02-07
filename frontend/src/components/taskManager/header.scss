@@ -3,8 +3,6 @@
     max-width: 1400px;
     height: 6rem;
     display: flex;
-
-
     &__logo{
         width: 6rem;
         display: flex;
@@ -37,6 +35,7 @@
         margin-bottom: auto;
         padding: 0 1rem;
         transition: background-color .25s ease;
+        cursor: pointer;
         &:hover{
             background-color: darken(royalblue,10%)
         }
