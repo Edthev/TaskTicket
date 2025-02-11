@@ -2,7 +2,7 @@ import { useState } from "react"
 import "./header.scss"
 import Logo from "../../assets/Logo.svg"
 import SearchIcon from "../../assets/searchIcon.svg"
-import Modal from "../../components/taskManager/modal"
+import Modal from "./modal/modalForm"
 
 const taskManagerPageHeader = () =>{
     const [isModalOpen,setIsModalOpen] = useState(true)
