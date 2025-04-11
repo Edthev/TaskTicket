@@ -16,7 +16,7 @@ const modal=({isModalOpen, setIsModalOpen}: any)=>{
 
     useEffect(()=>{
         //TODO if response includes error display error
-        console.log("response:",response)
+        response ? console.log("response:",response):""
     },[response])
 
     const handleSubmit=async(e:React.FormEvent)=>{
