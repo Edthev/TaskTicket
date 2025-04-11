@@ -3,6 +3,7 @@ import "./header.scss"
 import Logo from "../../assets/Logo.svg"
 import SearchIcon from "../../assets/searchIcon.svg"
 import Modal from "./modal/modalForm"
+import SettingIcon from "../../assets/settingsIcon.svg"
 
 const taskManagerPageHeader = () =>{
     const [isModalOpen,setIsModalOpen] = useState(false)
@@ -22,6 +23,9 @@ const taskManagerPageHeader = () =>{
             </div>
             <div className="header__user"></div>
             <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+            <button className="settings" onClick={() => console.log("test")}>
+                <img src={SettingIcon}/>
+            </button>
         </div>
     )
 }
