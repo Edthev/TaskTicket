@@ -24,3 +24,5 @@
 *.sw?
 
 todo.md
+backend/todo.md
+backend/.env
