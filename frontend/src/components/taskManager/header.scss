@@ -37,6 +37,7 @@
         transition: background-color .25s ease;
         cursor: pointer;
         &:hover{
+            //TODO depreciated have to update
             background-color: darken(royalblue,10%)
         }
     }

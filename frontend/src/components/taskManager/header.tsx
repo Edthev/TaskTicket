@@ -5,7 +5,7 @@ import SearchIcon from "../../assets/searchIcon.svg"
 import Modal from "./modal/modalForm"
 
 const taskManagerPageHeader = () =>{
-    const [isModalOpen,setIsModalOpen] = useState(true)
+    const [isModalOpen,setIsModalOpen] = useState(false)
     return(
         <div className="header">
             {/* TODO turn logo into route to home page */}

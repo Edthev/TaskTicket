@@ -5,9 +5,45 @@ import addressIcon from "../../../assets/buildingsIcon.svg"
 import aptIcon from "../../../assets/doorIcon.svg"
 import phoneIcon from "../../../assets/phoneIcon.svg"
 import noteIcon from "../../../assets/noteIcon.svg"
+import { useEffect, useState } from "react"
 
 const modal=({isModalOpen, setIsModalOpen}: any)=>{
-    console.log("test:",isModalOpen)
+    const [addressText,setAddressText] = useState("")
+    const [aptText,setAptText] = useState("")
+    const [phone,setPhone] = useState("")
+    const [notes,setNotes] = useState("")
+    const [response,setResponse] = useState("")
+
+    useEffect(()=>{
+        // if response includes error display error
+        console.log("response:",response)
+    },[response])
+
+    const handleSubmit=async(e:React.FormEvent)=>{
+        e.preventDefault()
+        try{
+            const sending = {address:addressText,apt:aptText,phone:phone,note:notes}
+            console.log("sending:",sending)
+            const res = await fetch("http://localhost:3000/submit",{
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify(sending)
+            })
+            const resData = await res.json()
+            if(resData.message=="Empty"){
+                new Error("Empty Response")
+            }else{
+            setResponse(resData.message) 
+            setIsModalOpen(false)
+            //TODO fetch new data to display
+            }
+        }catch(err){
+            setResponse("Error Getting Data")
+        }
+    }
+
     if(isModalOpen){
     return(
         <>
@@ -17,14 +53,16 @@ const modal=({isModalOpen, setIsModalOpen}: any)=>{
                     <span className="title">Add Task</span>
                     <button className="close" onClick={()=>{setIsModalOpen(false)}}>X</button>
                 </div>
-                <form className="modal__form">
-                    <Input placeholder="Address" icon={addressIcon} state={true} error={false}/>
-                    <Input placeholder="Apartment" icon={aptIcon} state={true} error={false}/>
-                    <Input placeholder="Phone Number" icon={phoneIcon} state={true} error={false}/>
+                <form className="modal__form" onSubmit={(e:React.FormEvent)=>{
+                            handleSubmit(e)
+                        }}>
+                    <Input placeholder="Address" onChange={setAddressText} icon={addressIcon} state={true} error={false}/>
+                    <Input placeholder="Apartment" onChange={setAptText} icon={aptIcon} state={true} error={false}/>
+                    <Input placeholder="Phone Number" onChange={setPhone} icon={phoneIcon} state={true} error={false}/>
                     {/* <Dropdown placeholder="Status" state={true} error={false}/> */}
-                    <Input placeholder="Notes" icon={noteIcon} state={true} error={false}/>
+                    <Input placeholder="Notes"onChange={setNotes} icon={noteIcon} state={true} error={false}/>
                     <div className="submit">
-                        <button onSubmit={()=>{setIsModalOpen(false)}}>Submit</button>
+                        <button type="submit">Submit</button>
                     </div>
                 </form>
             </div>

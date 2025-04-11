@@ -1,5 +1,5 @@
 // import SearchIcon from "../../../assets/searchIcon.svg"
-const ModalInput = ({placeholder,icon, state, error}:any)=>{
+const ModalInput = ({onChange,placeholder,icon, state, error}:any)=>{
     const displayError =()=>{
         return(
             <div className="error">
@@ -12,7 +12,7 @@ const ModalInput = ({placeholder,icon, state, error}:any)=>{
             <label className="label">{placeholder}</label>
             <div>
                 <img className="icon" src={icon}/>
-                <input placeholder={placeholder}/>
+                <input onChange={(e)=>onChange(e.target.value)} placeholder={placeholder}/>
             </div>
             {error ? displayError() : <></>}
         </div>
