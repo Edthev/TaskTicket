@@ -15,21 +15,20 @@ const modal=({isModalOpen, setIsModalOpen}: any)=>{
     const [response,setResponse] = useState("")
 
     useEffect(()=>{
-        // if response includes error display error
+        //TODO if response includes error display error
         console.log("response:",response)
     },[response])
 
     const handleSubmit=async(e:React.FormEvent)=>{
         e.preventDefault()
         try{
-            const sending = {address:addressText,apt:aptText,phone:phone,note:notes}
-            console.log("sending:",sending)
+            const postData = {address:addressText,apt:aptText,phone:phone,note:notes}
             const res = await fetch("http://localhost:3000/submit",{
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body:JSON.stringify(sending)
+                body:JSON.stringify(postData)
             })
             const resData = await res.json()
             if(resData.message=="Empty"){
@@ -61,6 +60,7 @@ const modal=({isModalOpen, setIsModalOpen}: any)=>{
                     <Input placeholder="Phone Number" onChange={setPhone} icon={phoneIcon} state={true} error={false}/>
                     {/* <Dropdown placeholder="Status" state={true} error={false}/> */}
                     <Input placeholder="Notes"onChange={setNotes} icon={noteIcon} state={true} error={false}/>
+                        {response? <p>{response}</p>:""}
                     <div className="submit">
                         <button type="submit">Submit</button>
                     </div>
