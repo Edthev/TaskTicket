@@ -10,7 +10,7 @@ app.use(cors({
   origin: 'http://localhost:5173',
   methods: ['GET', 'POST'],
 }))
-// app.use(express.json()); 
+app.use(express.json()); 
 
 app.get('/', (_req, res) => {
   res.send({'Test':"init"});
