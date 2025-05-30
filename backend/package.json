@@ -5,15 +5,16 @@
    "scripts": {
       "build": "tsc",
       "prod": "node dist/server.js",
-      "runBuild": "tsc && nodemon src/server.ts",
       "start": "nodemon src/server.ts --watch"
    },
    "author": "",
    "license": "ISC",
    "dependencies": {
+      "@prisma/client": "^6.6.0",
       "cors": "^2.8.5",
       "dotenv": "^16.5.0",
-      "express": "^5.1.0"
+      "express": "^5.1.0",
+      "mysql2": "^3.14.0"
    },
    "keywords": [],
    "description": "",
@@ -22,6 +23,7 @@
       "@types/express": "^5.0.1",
       "@types/node": "^22.14.0",
       "nodemon": "^3.1.9",
+      "prisma": "^6.6.0",
       "ts-node": "^10.9.2",
       "typescript": "^5.8.3"
    }
