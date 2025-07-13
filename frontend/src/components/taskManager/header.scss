@@ -1,3 +1,4 @@
+@use 'sass:color';
 .header{
     width: 100%;
     max-width: 1400px;
@@ -37,8 +38,7 @@
         transition: background-color .25s ease;
         cursor: pointer;
         &:hover{
-            //TODO depreciated have to update
-            background-color: darken(royalblue,10%)
+            background-color: color.adjust(royalblue, $lightness: -20%);
         }
     }
     &__search{
