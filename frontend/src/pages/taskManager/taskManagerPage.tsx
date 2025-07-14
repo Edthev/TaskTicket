@@ -1,5 +1,5 @@
-import Header from "../../components/taskManager/header"
-import Table from "../../components/taskManager/table"
+import Header from "../../components/header/header"
+import Table from "../../components/table/table"
 const taskManagerPage = () =>{
     /*
     header
