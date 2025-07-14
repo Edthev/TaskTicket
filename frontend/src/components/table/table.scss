@@ -1,0 +1,31 @@
+.table{
+    background-color: white ;
+    border: 1px solid black;
+    width: 100%;
+    max-width: 1400px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    &__header{
+        th{
+            font-weight:800;
+            padding: 1rem;
+            color:royalblue;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            margin: 0;
+        }
+        th:last-child{
+            border-right: none;
+        }
+    }
+    tbody{
+        color: #636363;
+            td{
+                border-right: #B8B8B8 solid 1px;
+        }
+        tr:nth-child(even){
+            background-color: #f9f9f9;
+        }
+    }
+}
