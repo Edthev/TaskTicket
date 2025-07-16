@@ -7,7 +7,8 @@ import phoneIcon from "../../assets/phoneIcon.svg"
 import noteIcon from "../../assets/noteIcon.svg"
 import { useEffect, useState } from "react"
 
-const PORT = process.env.PORT
+const PORT = import.meta.env.VITE_FRONTEND_PORT
+
 
 const Modal=({isModalOpen,setIsModalOpen,}: {isModalOpen: boolean,setIsModalOpen: (value: boolean) => void})=>{
     const [addressText,setAddressText] = useState("")
@@ -15,14 +16,14 @@ const Modal=({isModalOpen,setIsModalOpen,}: {isModalOpen: boolean,setIsModalOpen
     const [phone,setPhone] = useState("")
     const [notes,setNotes] = useState("")
     const [response,setResponse] = useState("")
-
+    
     useEffect(()=>{
         //TODO if response includes error display error
         if(response){
             console.log("response:",response)
         }
     },[response])
-
+    
     const handleSubmit=async(e:React.FormEvent)=>{
         e.preventDefault()
         try{
